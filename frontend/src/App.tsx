@@ -1,34 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './Pages/Layout.tsx';
+import Home from './Pages/Home.tsx';
+import HomeMedico from './Pages/HomeMedico.tsx';
+import HomePaciente from './Pages/HomePaciente.tsx';
+import HomeAdmin from './Pages/HomeAdmin.tsx';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+function App()  {
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+        <Routes>
+            {/* Páginas para quienes no han iniciado sesión.*/}
+            <Route path='/' element={<Layout />}>
+                <Route index element={<Home />} />
+            </Route>
+
+            {/* Páginas para pacientes registrados*/}
+            <Route path='/paciente' element={<Layout />}>
+                <Route index element={<HomePaciente />} />
+            </Route>
+
+
+            {/* Páginas para medicos registrados*/}
+            <Route path='/medico' element={<Layout />}>
+                <Route index element={<HomeMedico />} />
+            </Route>
+            
+            
+            {/* Páginas para el administrador*/}
+            <Route path='/admin' element={<Layout />}>
+                <Route index element={<HomeAdmin />} />
+            </Route>
+        </Routes>
+    </BrowserRouter>
   )
 }
 

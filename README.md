@@ -1,2 +1,3 @@
 # hospital
-VITE + REACT + Tailwind + SQL Server + Express, Administrador de citas de un hospital.
+Administrador de citas de un hospital.
+VITE + REACT + Tailwind + SQL Server + Express.

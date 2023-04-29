@@ -12,6 +12,7 @@ import HomeMedico from './Pages/Medico/HomeMedico.tsx';
 import HomePaciente from './Pages/Paciente/HomePaciente.tsx';
 import HomeAdmin from './Pages/Administrador/HomeAdmin.tsx';
 import './App.css';
+import Signin2 from './Pages/Publico/Signin2.tsx';
 
 function App()  {
 
@@ -26,6 +27,7 @@ function App()  {
                 <Route path='/contacto' element={<Contacto />} />
                 <Route path='/log-in' element={<Login />} />
                 <Route path='/sign-in' element={<Signin />} />
+                <Route path='/sign-in/continue' element={<Signin2 />} />
             </Route>
 
             {/* Páginas para pacientes registrados*/}

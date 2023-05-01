@@ -13,6 +13,14 @@ import HomePaciente from './Pages/Paciente/HomePaciente.tsx';
 import HomeAdmin from './Pages/Administrador/HomeAdmin.tsx';
 import './App.css';
 import Signin2 from './Pages/Publico/Signin2.tsx';
+import ListaPacientes from './Pages/Administrador/Pacientes/ListaPacientes.tsx';
+import AgregarPaciente from './Pages/Administrador/Pacientes/AgregarPaciente.tsx';
+import ConsultarCita from './Pages/Administrador/Pacientes/ConsultarCita.tsx';
+import AgendarCita from './Pages/Administrador/Pacientes/AgendarCita.tsx';
+import BuscarPaciente from './Pages/Administrador/Pacientes/BuscarPaciente.tsx';
+import AgregarEmpleado from './Pages/Administrador/Empleados/AgregarEmpleado.tsx';
+import ListaEmpleados from './Pages/Administrador/Empleados/ListaEmpleados.tsx';
+import BuscarEmpleado from './Pages/Administrador/Empleados/BuscarEmpleado.tsx';
 
 function App()  {
 
@@ -45,6 +53,14 @@ function App()  {
             {/* Páginas para el administrador*/}
             <Route path='/admin' element={<Layout />}>
                 <Route index element={<HomeAdmin />} />
+                <Route path='lista-pacientes' element={<ListaPacientes />} />
+                <Route path='agregar-paciente' element={<AgregarPaciente />} />
+                <Route path='consultar-cita' element={<ConsultarCita />} />
+                <Route path='agendar-cita' element={<AgendarCita />} />
+                <Route path='buscar-paciente' element={<BuscarPaciente />} />
+                <Route path='agregar-empleado' element={<AgregarEmpleado />} />
+                <Route path='lista-empleados' element={<ListaEmpleados />} />
+                <Route path='buscar-empleado' element={<BuscarEmpleado />} />
             </Route>
         </Routes>
     </BrowserRouter>

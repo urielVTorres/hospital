@@ -21,6 +21,13 @@ import BuscarPaciente from './Pages/Administrador/Pacientes/BuscarPaciente.tsx';
 import AgregarEmpleado from './Pages/Administrador/Empleados/AgregarEmpleado.tsx';
 import ListaEmpleados from './Pages/Administrador/Empleados/ListaEmpleados.tsx';
 import BuscarEmpleado from './Pages/Administrador/Empleados/BuscarEmpleado.tsx';
+import AgregarConsultorio from './Pages/Administrador/Clinica/AgregarConsultorio.tsx';
+import ListaConsultorios from './Pages/Administrador/Clinica/ListaConsultorios.tsx';
+import AgregarDepartamento from './Pages/Administrador/Clinica/AgregarDepartamento.tsx';
+import ListaDepartamentos from './Pages/Administrador/Clinica/ListaDepartamentos.tsx';
+import BuscarConsultorio from './Pages/Administrador/Clinica/BuscarConsultorio.tsx';
+import AgregarEspecialidad from './Pages/Administrador/Clinica/AgregarEspecialidad.tsx';
+import AgregarTurno from './Pages/Administrador/Clinica/AgregarTurno.tsx';
 
 function App()  {
 
@@ -53,14 +60,26 @@ function App()  {
             {/* Páginas para el administrador*/}
             <Route path='/admin' element={<Layout />}>
                 <Route index element={<HomeAdmin />} />
-                <Route path='lista-pacientes' element={<ListaPacientes />} />
-                <Route path='agregar-paciente' element={<AgregarPaciente />} />
-                <Route path='consultar-cita' element={<ConsultarCita />} />
                 <Route path='agendar-cita' element={<AgendarCita />} />
+                <Route path='agregar-paciente' element={<AgregarPaciente />} />
                 <Route path='buscar-paciente' element={<BuscarPaciente />} />
+                <Route path='consultar-cita' element={<ConsultarCita />} />
+                <Route path='lista-pacientes' element={<ListaPacientes />} />
+
+
                 <Route path='agregar-empleado' element={<AgregarEmpleado />} />
-                <Route path='lista-empleados' element={<ListaEmpleados />} />
                 <Route path='buscar-empleado' element={<BuscarEmpleado />} />
+                <Route path='lista-empleados' element={<ListaEmpleados />} />
+                
+                <Route path='agregar-consultorio' element={<AgregarConsultorio />} />
+                <Route path='agregar-departamento' element={<AgregarDepartamento />} />
+                <Route path='agregar-especialidad' element={<AgregarEspecialidad />} />
+                <Route path='agregar-turno' element={<AgregarTurno />} />
+                <Route path='buscar-consultorio' element={<BuscarConsultorio />} />
+                <Route path='lista-consultorios' element={<ListaConsultorios />} />
+                <Route path='lista-departamentos' element={<ListaDepartamentos />} />
+
+
             </Route>
         </Routes>
     </BrowserRouter>

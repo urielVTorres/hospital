@@ -13,7 +13,9 @@ const sqlConfig = {
 
 export const getConnection = async () => {
     try {
+        console.log("Conectando.");
         const pool = await sql.connect(sqlConfig);
+        console.log("Conectado.");
         return pool;
     } catch (error) {
         console.log(error)

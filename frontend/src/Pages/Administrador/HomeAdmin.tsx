@@ -29,25 +29,16 @@ const HomeAdmin = () => {
                 <div className="grid grid-cols-1 p-5" >
                     <ul>
                         <li>
-                            <Link to='agregar-consultorio' children="Agregar un consultorio" />
+                            <Link to='especialidades' children="Especialidades" />
                         </li>
                         <li>
-                            <Link to='agregar-departamento' children="Agregar un departamento" />
+                            <Link to='consultorios' children="Consultorios" />
                         </li>
                         <li>
-                            <Link to='buscar-consultorio' children="Buscar un consultorio" />
+                            <Link to='departamentos' children="Departamentos" />
                         </li>
                         <li>
-                            <Link to='lista-consultorios' children="Lista de consultorios" />
-                        </li>
-                        <li>
-                            <Link to='lista-departamentos' children="Lista de departamentos" />
-                        </li>
-                        <li>
-                            <Link to='agregar-especialidad' children="Agregar especialidad" />
-                        </li>
-                        <li>
-                            <Link to='agregar-turno' children="Agregar turno laboral" />
+                            <Link to='turnos' children="Turnos laborales" />
                         </li>
                     </ul>
                 </div>

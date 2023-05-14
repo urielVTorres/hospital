@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 dotenv.config({path:'C:/Users/chopa/Desktop/code/database/backend/.env'});
 import app from './app.js';
 import pacienteRoutes from './routes/paciente.routes.js';
+import adminRoutes from './routes/admin.routes.js';
 
 
 
@@ -11,3 +12,4 @@ app.listen(app.get('PORT'), ()=>{
 });
 
 app.use(pacienteRoutes);
+app.use(adminRoutes);

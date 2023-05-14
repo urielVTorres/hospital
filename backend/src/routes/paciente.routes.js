@@ -3,12 +3,12 @@ import { createNewPatient, deletePatientByCURP, getPatient, getPatientByCURP, ge
 
 const router = Router();
 
-router.get('/api/paciente', getPatient);
-router.get("/api/paciente/count", getTotalPatients);
-router.post('/api/paciente', createNewPatient);
-router.get('/api/paciente/:CURP', getPatientByCURP);
-router.delete('/api/paciente/:CURP', deletePatientByCURP);
-router.put('/api/paciente/:id', updatePatientById);
+router.get('/', getPatient);
+router.get("/count", getTotalPatients);
+router.post('/', createNewPatient);
+router.get('/:CURP', getPatientByCURP);
+router.delete('/:CURP', deletePatientByCURP);
+router.put('/:id', updatePatientById);
 
 
 export default router;

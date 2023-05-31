@@ -12,7 +12,7 @@ const AgregarEspecialidad = () => {
     useEffect( () =>{
             const getEspecialidades = async ()=>{
                 try {
-                    const {data} = await axios.get('//localhost:4000/api/admin/clinica/especialidades')
+                    const {data} = await axios.get('//192.168.100.20:4000/api/admin/clinica/especialidades')
                     console.log(data);
                     setEspecialidades(data);
                 } catch (error) {
@@ -28,7 +28,7 @@ const AgregarEspecialidad = () => {
 
     const agregarEspecialidad = async () =>{
         try {
-            const {data} = await axios.post('//localhost:4000/api/admin/clinica/especialidades',
+            const {data} = await axios.post('//192.168.100.20:4000/api/admin/clinica/especialidades',
             { 
                 especialidad: nuevaEspecialidad 
             }, 
@@ -52,7 +52,7 @@ const AgregarEspecialidad = () => {
     const eliminarEspecialidad = async (e:any) =>{
         try {
             const id = e.target.id;
-            const {data} = await axios.delete(`//localhost:4000/api/admin/clinica/especialidades/${id}`);
+            const {data} = await axios.delete(`//192.168.100.20:4000/api/admin/clinica/especialidades/${id}`);
             console.log(data);
             setMensaje(data);
             const listaFiltrada  = especialidades.filter(especialidad => especialidad.ID_Especialidad != id );
@@ -63,7 +63,7 @@ const AgregarEspecialidad = () => {
     }
     const editarEspecialidad = async () => {
         try {
-            const {data} = await axios.put(`//localhost:4000/api/admin/clinica/especialidades/${idEdit}`,
+            const {data} = await axios.put(`//192.168.100.20:4000/api/admin/clinica/especialidades/${idEdit}`,
             {   
                 especialidad: nuevaEspecialidad 
             }, 

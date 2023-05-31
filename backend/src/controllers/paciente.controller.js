@@ -13,26 +13,23 @@ const getPatient = async (req, res) => {
 
 const createNewPatient = async (req, res) => {
     try {
-        const i = req.body;
-        const { CURP, firstname, f_lastname, NSS, CP, email, phone } = i;
-        if ([CURP, firstname, f_lastname, email].includes('') || [NSS, CP, phone].includes(null)) {
+        const paciente = req.body;
+        const { paterno,materno, nombre, fechaNac, colonia, calle, numero, telefono, correo } = paciente;
+        if ([CURP, paterno, nombre, correo].includes('') || [phone].includes(null)) {
             return res.json({ msg: "Llene los campos obligatorios" });
         }
         const pool = await getConnection();
         const result = await pool.request()
-            .input("CURP", i.CURP)
-            .input("firstname", i.firstname)
-            .input("f_lastname", i.f_lastname)
-            .input("m_lastname", i.m_lastname)
-            .input("gender", i.gender)
-            .input("birthday", i.birthday)
-            .input("NSS", i.NSS)
-            .input("street", i.street)
-            .input("number", i.number)
-            .input("state", i.state)
-            .input("CP", i.CP)
-            .input("phone", i.phone)
-            .input("email", i.email)
+            .input("CURP", CURP)
+            .input("nombre", nombre)
+            .input("paterno", paterno)
+            .input("materno", materno)
+            .input("fechaNac", fechaNac)
+            .input("calle", calle)
+            .input("colonia", colonia)
+            .input("numero", numero)
+            .input("telefono", telefono)
+            .input("correo", correo)
             .query(queries.registerNewPatient)
         console.log(result);
         return res.json({ msg: "Paciente registrado" });
@@ -123,7 +120,16 @@ try {
     }
 }
 
+const registroUsuario = async (req, res) => {
+    try {
+        const {} = req.body;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export {
+    registroUsuario,
     getPatient,
     createNewPatient,
     getPatientByCURP,

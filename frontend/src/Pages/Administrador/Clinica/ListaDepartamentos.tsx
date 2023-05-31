@@ -13,7 +13,7 @@ const ListaDepartamentos =  () => {
     useEffect( () =>{
             const getDepartamentos = async ()=>{
                 try {
-                    const {data} = await axios.get('//localhost:4000/api/admin/clinica/departamentos')
+                    const {data} = await axios.get('//192.168.100.20:4000/api/admin/clinica/departamentos')
                     console.log(data);
                     setDepartamentos(data);
                 } catch (error) {
@@ -29,7 +29,7 @@ const ListaDepartamentos =  () => {
 
     const agregarDepartamento = async () =>{
         try {
-            const {data} = await axios.post('//localhost:4000/api/admin/clinica/departamentos',
+            const {data} = await axios.post('//192.168.100.20:4000/api/admin/clinica/departamentos',
             { 
                 departamento: nuevoDepartamento 
             }, 
@@ -54,7 +54,7 @@ const ListaDepartamentos =  () => {
     const eliminarDepartamento = async (e:any) =>{
         try {
             const id = e.target.id;
-            const {data} = await axios.delete(`//localhost:4000/api/admin/clinica/departamentos/${id}`);
+            const {data} = await axios.delete(`//192.168.100.20:4000/api/admin/clinica/departamentos/${id}`);
             console.log(data);
             setMensaje(data);
             const listaFiltrada  = departamentos.filter(departamento => departamento.ID_Area != id );
@@ -65,7 +65,7 @@ const ListaDepartamentos =  () => {
     }
     const editarDepartamento = async () => {
         try {
-            const {data} = await axios.put(`//localhost:4000/api/admin/clinica/departamentos/${idEdit}`,
+            const {data} = await axios.put(`//192.168.100.20:4000/api/admin/clinica/departamentos/${idEdit}`,
             {   
                 departamento: nuevoDepartamento 
             }, 

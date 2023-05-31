@@ -16,13 +16,13 @@ import {
 
 const router = Router();
 
-//Rutas con relación a los pacientes
 
-router.get("/api/admin/paciente/count", getTotalPatients);
-router.post('/api/admin/paciente', createNewPatient);
-router.get('/api/admin/paciente/:CURP', getPatientByCURP);
-router.delete('/api/admin/paciente/:CURP', deletePatientByCURP);
-router.put('/api/admin/paciente/:id', updatePatientById);
+//Rutas con relación a los pacientes
+router.get("/paciente/count", getTotalPatients);
+router.post('/paciente', createNewPatient);
+router.get('/paciente/:CURP', getPatientByCURP);
+router.delete('/paciente/:CURP', deletePatientByCURP);
+router.put('/paciente/:id', updatePatientById);
 
 
 //Rutas con relación a la clínica.

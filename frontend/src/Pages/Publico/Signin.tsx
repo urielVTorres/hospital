@@ -18,6 +18,7 @@ const Signin = () => {
             return;
         }
         setValido(true);
+        localStorage.setItem('user', JSON.stringify(info));
     }
     useEffect(() => {
         if(valido){

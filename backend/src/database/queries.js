@@ -2,7 +2,7 @@
 export const queries = {
 //Pacientes
     getAllPatients: "SELECT * FROM Paciente",
-    registerNewPatient: 'INSERT INTO Paciente (CURP, firstname, f_lastname, m_lastname, gender, birthday, NSS, street, number, state, CP, phone, email) VALUES (@CURP, @firstname, @f_lastname, @m_lastname, @gender, @birthday, @NSS, @street, @number, @state, @CP, @phone, @email)',
+    registerNewPatient: 'INSERT INTO Paciente (Ap_PaternoP, Ap_MaternoP,NombreP,CURP,FechaNac, Colonia, Calle, Numero, TelefonoP, CorreoP,Edad) VALUES (@paterno,@materno, @nombre, @fechaNac, @colonia, @calle, @numero, @telefono, @correo, DATEDIFF(YEAR,@fechaNac,GETDATE()))',
     getPatientByCURP: 'SELECT * FROM Paciente Where CURP = @CURP',
     deletePatient: 'DELETE FROM [hospital].[dbo].[Paciente] WHERE CURP = @CURP',
     getTotalPatients: 'SELECT COUNT(*) FROM Paciente',

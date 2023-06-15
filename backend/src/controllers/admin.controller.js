@@ -161,8 +161,50 @@ const editarEspecialidad = async (req, res) => {
     }
 }
 
+const createNewUser = async (req, res)=>{
+    try {
+        const {email, password, tipo_usuario} = req.body;
+        const pool = await getConnection();
+        const result = await pool.request()
+            .input('email', email)
+            .input('password', password)
+            .input('tipo_usuario', tipo_usuario)
+            .query(queries.agregarUsuario); 
+        res.json({msg: 'Usuario agregado correctamente.', error: false});
+        await pool.close();
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const getAllPatients = async (req, res)=>{
+    try {
+        const pool = await getConnection();
+        const result = await pool.request().query(queries.getAllPatients);
+        await pool.close();
+        res.json(result.recordset);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const getCitas = async ( req, res) => {
+    try {
+        const pool = await getConnection();
+        const result = await pool.request().query(queries.getCitas);
+        await pool.close();
+        res.json(result.recordset);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export {
     getTurnos, agregarTurno, eliminarTurno, editarTurno,
     getDepartamentos, agregarDepartamento, eliminarDepartamento, editarDepartamento,
-    getEspecialidades, agregarEspecialidad, eliminarEspecialidad, editarEspecialidad
+    getEspecialidades, agregarEspecialidad, eliminarEspecialidad, editarEspecialidad,
+    createNewUser,
+    getAllPatients, getCitas
+
 }

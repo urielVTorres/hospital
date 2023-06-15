@@ -11,11 +11,12 @@ const getPatient = async (req, res) => {
     }
 }
 
+
 const createNewPatient = async (req, res) => {
     try {
         const paciente = req.body;
-        const { paterno,materno, nombre, fechaNac, colonia, calle, numero, telefono, correo } = paciente;
-        if ([CURP, paterno, nombre, correo].includes('') || [phone].includes(null)) {
+        const { paterno, materno, nombre, fechaNac, edad, CURP, colonia, calle, numero, telefono, correo, municipio, estado, CP } = paciente;
+        if ([CURP, paterno, nombre, correo].includes('') || [telefono].includes(null)) {
             return res.json({ msg: "Llene los campos obligatorios" });
         }
         const pool = await getConnection();
@@ -30,9 +31,13 @@ const createNewPatient = async (req, res) => {
             .input("numero", numero)
             .input("telefono", telefono)
             .input("correo", correo)
+            .input("edad", edad)
+            .input("municipio", municipio)
+            .input("estado", estado)
+            .input("CP", CP)
             .query(queries.registerNewPatient)
         console.log(result);
-        return res.json({ msg: "Paciente registrado" });
+        return res.json({ msg: "Paciente registrado.", error: false });
     } catch (error) {
         console.error(error);
     }

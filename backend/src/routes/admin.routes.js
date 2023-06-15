@@ -4,23 +4,26 @@ import {
     deletePatientByCURP, 
     getPatientByCURP, 
     getTotalPatients, 
-    updatePatientById,
+    updatePatientById
 } from "../controllers/paciente.controller.js";
 
 import { 
+    createNewUser,
     getTurnos, agregarTurno, eliminarTurno, editarTurno,
-
     getDepartamentos, agregarDepartamento, eliminarDepartamento, editarDepartamento,
-    getEspecialidades, agregarEspecialidad, eliminarEspecialidad, editarEspecialidad,
+    getEspecialidades, agregarEspecialidad, eliminarEspecialidad, editarEspecialidad, getAllPatients, getCitas,
 } from "../controllers/admin.controller.js";
 
 const router = Router();
 
+//Agregar usuario
+router.post("/user", createNewUser);
 
 //Rutas con relación a los pacientes
 router.get("/paciente/count", getTotalPatients);
 router.post('/paciente', createNewPatient);
 router.get('/paciente/:CURP', getPatientByCURP);
+router.get('/paciente', getAllPatients);
 router.delete('/paciente/:CURP', deletePatientByCURP);
 router.put('/paciente/:id', updatePatientById);
 
@@ -45,6 +48,8 @@ router.post('/clinica/especialidades', agregarEspecialidad);
 router.delete('/clinica/especialidades/:id', eliminarEspecialidad);
 router.put('/clinica/especialidades/:id', editarEspecialidad);
 
+//Citas
+router.get('/clinica/citas', getCitas);
 
 
 export default router;

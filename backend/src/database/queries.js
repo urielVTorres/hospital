@@ -1,8 +1,11 @@
 
 export const queries = {
 //Pacientes
-    getAllPatients: "SELECT * FROM Paciente",
-    registerNewPatient: 'INSERT INTO Paciente (Ap_PaternoP, Ap_MaternoP,NombreP,CURP,FechaNac, Colonia, Calle, Numero, TelefonoP, CorreoP,Edad) VALUES (@paterno,@materno, @nombre, @fechaNac, @colonia, @calle, @numero, @telefono, @correo, DATEDIFF(YEAR,@fechaNac,GETDATE()))',
+getAllPatients: "SELECT * FROM Paciente",
+getCitas: "SELECT * FROM VW_consultar_citas",
+registerNewPatient: 'INSERT INTO Paciente (Ap_PaternoP, Ap_MaternoP,NombreP, CURP,FechaNac, Colonia, Calle, Numero, TelefonoP, CorreoP,Edad, Estado, Municipio, CP, Id_Usuario_Paciente) VALUES (@paterno,@materno, @nombre, @CURP, @fechaNac, @colonia, @calle, @numero, @telefono, @correo, @edad, @estado, @municipio, @CP, (SELECT Id_Usuario FROM usuario WHERE correo = @correo))',
+    
+    
     getPatientByCURP: 'SELECT * FROM Paciente Where CURP = @CURP',
     deletePatient: 'DELETE FROM [hospital].[dbo].[Paciente] WHERE CURP = @CURP',
     getTotalPatients: 'SELECT COUNT(*) FROM Paciente',
@@ -21,6 +24,9 @@ export const queries = {
     getAllEspecialidades: "SELECT * FROM Especialidad ORDER BY 1",
     agregarEspecialidad: "INSERT INTO Especialidad (NombreEspecialidad) VALUES (@especialidad)",
     eliminarEspecialidad: "DELETE FROM Especialidad WHERE ID_Area = @id",
-    editarEspecialidad: "UPDATE Especialidad SET NombreEspecialidad = @especialidad WHERE ID_Especialidad = @id"
+    editarEspecialidad: "UPDATE Especialidad SET NombreEspecialidad = @especialidad WHERE ID_Especialidad = @id",
+
+//Agregar Usuario
+    agregarUsuario: "INSERT INTO usuario (contraseña, correo, ID_Tipo_Usuario) VALUES (@password, @email, @tipo_usuario)"
 
 }

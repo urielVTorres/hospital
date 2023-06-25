@@ -1,6 +1,24 @@
-import { Link } from "react-router-dom"
-
+import { Link, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
 const HomeAdmin = () => {
+    const [usuario] = useState(JSON.parse(localStorage.getItem('usuario')) || {ID_Tipo_Usuario: 0});
+    const navigate = useNavigate();
+    useEffect(() => {
+        switch (usuario.ID_Tipo_Usuario) {
+            case 0:
+                navigate('/log-in');
+                break
+            case 1:
+                navigate('/paciente')
+                break;
+            case 2:
+                navigate('/medico')
+                break;
+            case 3:
+                navigate('/medico')
+                break;
+        }
+    }, []);
     return (
         <div className="text-lg font-thin md:flex " >
 
@@ -43,7 +61,7 @@ const HomeAdmin = () => {
                     </ul>
                 </div>
             </div>
-            
+
             {/* Acceso  a métodos de los pacientes */}
             <div className="border-2 rounded-sm  p-10 md:w-96 w-11/12 mx-auto md:mx-5 mb-5 shadow-md">
                 <h2 className="text-2xl">Pacientes</h2>
@@ -67,6 +85,12 @@ const HomeAdmin = () => {
                     </ul>
                 </div>
             </div>
+            <button
+                className="absolute bottom-5 right-7 bg-slate-200 p-3 text-xl"
+                onClick={() => {
+                    navigate('/log-in');
+                }}
+            >Cerrar Sesión</button>
         </div>
     )
 }

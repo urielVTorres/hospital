@@ -11,7 +11,9 @@ import {
     createNewUser,
     getTurnos, agregarTurno, eliminarTurno, editarTurno,
     getDepartamentos, agregarDepartamento, eliminarDepartamento, editarDepartamento,
-    getEspecialidades, agregarEspecialidad, eliminarEspecialidad, editarEspecialidad, getAllPatients, getCitas,
+    getEspecialidades, agregarEspecialidad, eliminarEspecialidad, editarEspecialidad, getAllPatients, getCitas, login,
+
+    agregarDoctor,
 } from "../controllers/admin.controller.js";
 
 const router = Router();
@@ -48,8 +50,15 @@ router.post('/clinica/especialidades', agregarEspecialidad);
 router.delete('/clinica/especialidades/:id', eliminarEspecialidad);
 router.put('/clinica/especialidades/:id', editarEspecialidad);
 
+
 //Citas
 router.get('/clinica/citas', getCitas);
 
+
+//Inicio de sesion
+router.post('/login', login);
+
+//Doctor
+router.post('/clinica/doctores', agregarDoctor);
 
 export default router;

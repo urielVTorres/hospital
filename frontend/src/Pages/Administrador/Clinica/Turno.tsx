@@ -13,7 +13,7 @@ const AgregarTurno = () => {
     useEffect( () =>{
             const getTurnos = async ()=>{
                 try {
-                    const {data} = await axios.get('//192.168.100.20:4000/api/admin/clinica/turnos')
+                    const {data} = await axios.get('//localhost:4000/api/admin/clinica/turnos')
                     console.log(data);
                     setListaTurnos(data);
                 } catch (error) {
@@ -29,7 +29,7 @@ const AgregarTurno = () => {
 
     const agregarTurno = async () =>{
         try {
-            const {data} = await axios.post('//192.168.100.20:4000/api/admin/clinica/turnos',
+            const {data} = await axios.post('//localhost:4000/api/admin/clinica/turnos',
             { 
                 turno: nuevoTurno 
             }, 
@@ -54,7 +54,7 @@ const AgregarTurno = () => {
     const eliminarTurno = async (e:any) =>{
         try {
             const id = e.target.id;
-            const {data} = await axios.delete(`//192.168.100.20:4000/api/admin/clinica/turnos/${id}`);
+            const {data} = await axios.delete(`//localhost:4000/api/admin/clinica/turnos/${id}`);
             console.log(data);
             setMensaje(data);
             const listaFiltrada  = turnos.filter(turno => turno.ID_Turno != id );
@@ -65,7 +65,7 @@ const AgregarTurno = () => {
     }
     const editarTurno = async () => {
         try {
-            const {data} = await axios.put(`//192.168.100.20:4000/api/admin/clinica/turnos/${idEdit}`,
+            const {data} = await axios.put(`//localhost:4000/api/admin/clinica/turnos/${idEdit}`,
             {   
                 turno: nuevoTurno 
             }, 

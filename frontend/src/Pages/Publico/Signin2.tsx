@@ -56,7 +56,7 @@ const Signin2 = () => {
             return;
         }
         //Axios post to create new patient
-        const {data} = await axios.post('//192.168.100.20:4000/api/admin/user',
+        const {data} = await axios.post('//localhost:4000/api/admin/user',
         { 
             email: user.email,
             password: user.password,
@@ -68,7 +68,7 @@ const Signin2 = () => {
               }
         })
         console.log(data);
-        const respuesta = await axios.post('//192.168.100.20:4000/api/paciente',
+        const respuesta = await axios.post('//localhost:4000/api/paciente',
         { 
             nombre: user.name, 
             paterno: user.last_name_f, 

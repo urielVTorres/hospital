@@ -23,10 +23,20 @@ registerNewPatient: 'INSERT INTO Paciente (Ap_PaternoP, Ap_MaternoP,NombreP, CUR
 //Clinica Especialidades (Especialidad del doctor)
     getAllEspecialidades: "SELECT * FROM Especialidad ORDER BY 1",
     agregarEspecialidad: "INSERT INTO Especialidad (NombreEspecialidad) VALUES (@especialidad)",
-    eliminarEspecialidad: "DELETE FROM Especialidad WHERE ID_Area = @id",
+    eliminarEspecialidad: "DELETE FROM Especialidad WHERE ID_Especialidad = @id",
     editarEspecialidad: "UPDATE Especialidad SET NombreEspecialidad = @especialidad WHERE ID_Especialidad = @id",
 
 //Agregar Usuario
-    agregarUsuario: "INSERT INTO usuario (contraseña, correo, ID_Tipo_Usuario) VALUES (@password, @email, @tipo_usuario)"
+    agregarUsuario: "INSERT INTO usuario (contraseña, correo, ID_Tipo_Usuario) VALUES (@password, @email, @tipo_usuario)",
 
+//Doctores
+    registerNewDoctor: 'INSERT INTO Doctor (Ap_PaternoD, Ap_MaternoD,NombreD, CURP, Cedula, TelefonoD, CorreoD,Edad,ID_Turno, ID_Especialidad, Id_Usuario_Doctor) VALUES (@paterno,@materno, @nombre, @CURP, @cedula, @telefono, @correo, @edad, @turno, @especialidad, (SELECT Id_Usuario FROM usuario WHERE correo = @correo))',
+    
+
+//Inicio de sesion
+    confirmarInicioSesion: "SELECT * FROM usuario WHERE correo = @email",
+    perfilPaciente: "SELECT * FROM VW_inicio_paciente WHERE Id_Usuario = @id",
+    perfilDoctor: "SELECT * FROM VW_inicio_doctor WHERE Id_Usuario = @id",
+    perfilEnfermera: "SELECT * FROM VW_inicio_enfermera WHERE Id_Usuario = @id",
+    perfilAdmin: "SELECT Id_Usuario, correo, ID_Tipo_Usuario FROM usuario WHERE Id_Usuario = @id"
 }

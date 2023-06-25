@@ -16,7 +16,7 @@ const ConsultarCita = () => {
     
     useEffect(()=>{
         const obtenerCitas = async () => {
-            const {data} = await axios.get('//192.168.100.20:4000/api/admin/clinica/citas')
+            const {data} = await axios.get('//localhost:4000/api/admin/clinica/citas')
             setCitas(data);
         }
         obtenerCitas();

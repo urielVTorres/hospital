@@ -23,7 +23,7 @@ const ListaPacientes = () => {
     
     useEffect(()=>{
         const obtenerPacientes = async () => {
-            const {data} = await axios.get('//192.168.100.20:4000/api/admin/paciente')
+            const {data} = await axios.get('//localhost:4000/api/admin/paciente')
             setPacientes(data);
         }
         obtenerPacientes();

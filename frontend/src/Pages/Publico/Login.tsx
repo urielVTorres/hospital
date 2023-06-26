@@ -53,37 +53,53 @@ const Login = () => {
         
     const {msg} = alerta;
   return (
-    <div>
-        {msg&& <Alerta mensaje={alerta} />}
-        <form 
-            className="grid grid-cols-1 md:w-96 w-11/12 mx-auto text-lg font-thin gap-2 shadow-sm px-10 py-5 rounded-sm  border-2"
-            onSubmit={handleSubmit}
-        >
-            <h1 className="text-2xl md:text-3xl text-center my-8 font-semibold" >Iniciar sesión</h1>
-            <label htmlFor="email" >Correo electrónico:</label>
-            <input id="email" placeholder=" Ej. mi_correo@correo.com" type="email" className="bg-slate-100  border-2 rounded-lg  focus:bg-white p-2 mb-2"
-                onChange={
-                    (e)=>{
-                        const user = usuario;
-                        user.email = e.target.value;
-                        setUsuario(user);
-                    }
-                }
-            />
-            <label htmlFor="password" >Contraseña:</label>
-            <input id="password" placeholder="Tu contraseña" type="password" className="bg-slate-100  border-2 rounded-lg  focus:bg-white p-2 mb-3"
-                onChange={
-                    (e)=>{
-                        const user = usuario;
-                        user.password = e.target.value;
-                        setUsuario(user);
-                    }
-                }            
-            />
-            <button type="submit" children="Enviar" className="bg-slate-700 px-3 py-2 rounded-md text-white font-bold text-xl shadow-md mb-2"/>
-            <p>¿No tienes una cuenta? <Link to='/sign-in'>¡Registrate!</Link> </p>
-        </form>
-    </div>
+
+      <div className="page-section">
+          {msg&& <Alerta mensaje={alerta} />}
+          <div className="row justify-content-center mt-5">
+              <div className="col-lg-3 col-md-5 col-sm-5">
+                  <div className="card shadow">
+                      <div className="card-title text-center border-bottom">
+                          <h2 className="p-3">Iniciar Sesión</h2>
+                      </div>
+                      <div className="card-body">
+                          <form onSubmit={handleSubmit}>
+                              <div className="mb-4">
+                                  <label htmlFor="email" className="form-label">Correo electrónico:</label>
+                                  <input type="email" className="form-control" id="email" placeholder=" Ej. mi_correo@correo.com"
+                                         onChange={
+                                             (e)=>{
+                                                 const user = usuario;
+                                                 user.email = e.target.value;
+                                                 setUsuario(user);
+                                             }
+                                         }
+                                  />
+                              </div>
+                              <div className="mb-4">
+                                  <label htmlFor="password" className="form-label">Password</label>
+                                  <input type="password" placeholder="Tu contraseña" className="form-control" id="password"
+                                         onChange={
+                                             (e)=>{
+                                                 const user = usuario;
+                                                 user.password = e.target.value;
+                                                 setUsuario(user);
+                                             }
+                                         }
+                                  />
+                              </div>
+                              <div className="d-grid">
+                                  <button type="submit" className="btn btn-primary">Enviar</button>
+                              </div>
+                              <div className="m-4">
+                                  <span>¿No tienes una cuenta? <Link to='/sign-in'>¡Registrate!</Link> </span>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   )
 }
 

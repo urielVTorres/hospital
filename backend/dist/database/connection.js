@@ -15,11 +15,11 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 var _mssql = _interopRequireDefault(require("mssql"));
 var sqlConfig = {
-  user: "root",
-  password: "gordito21",
+  user: "fernanda",
+  password: "secret",
   server: "localhost",
   port: 1433,
-  database: "hospital",
+  database: "VidaSana",
   options: {
     encrypt: true,
     trustServerCertificate: true

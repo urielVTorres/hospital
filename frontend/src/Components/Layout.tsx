@@ -5,10 +5,14 @@ const Layout = () => {
   return (
     <div>
         <Header/>
-        <div className="p-5">
+        <div>
             <Outlet />
         </div>
         <Footer/>
+
+        <div className="copyright py-4 text-center text-white">
+            <div className="container"><small>Derechos reservados &copy; Vida Sana @ 2023</small></div>
+        </div>
     </div>
   )
 }
